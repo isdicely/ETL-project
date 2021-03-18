@@ -26,6 +26,6 @@ We pulled best-selling book data from https://www.kaggle.com/sootersaalu/amazon-
 
 - Load: the final database, tables/collections, and why this was chosen.
 
-Our data was all in CSVs, which made more sense to use SQLAlchemy since we didn't use API's or jsons. We created the database loading_db in PGAdmin4 and then used that to create 5 tables: best_sellers, adult_housing, us_births, and us_population. These tables all have year columns from 2010-2017 and can join across that column.
+Our data was all in CSVs, which made more sense to use SQLAlchemy since we didn't use API's or jsons. We created the database loading_db in PGAdmin4 and then used that to create 5 tables using SQLAlchemy in Jupyter Notebook: best_sellers, adult_housing, us_births, and us_population. These tables all have year columns from 2010-2017 and can join across that column.
 
 - Please upload the report to Github and submit a link to Bootcampspot.
