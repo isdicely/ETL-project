@@ -46,6 +46,9 @@ Once imported into Pandas the following operations were done to transform the da
 •	Filtered data to select resident population data from 2010 to 2017.
 •	Made a copy of the data frame to load.
 
+The dataset describing historical living arrangements for adults between 1967 through 2020 was pulled from the Census Beureau website as an excel sheet. This data was  littered with null values, as well as descriprtory table comments which were unessenatial to the raw data. These were cleaned out of the data set utilyzing Panda’s ‘.dropna’, ‘.drop’, ‘.iloc’, and ‘.loc’.  Another transformation factor was resetting the column headers. After cleaning out the data, we dropped the rows with unnecessary years (we only needed the data for 2010-2017).
+
+For the data on yearly births per 1,000 women, the transformation process was similar to the historical living arrangements dataset. We began by dropping null values using ‘.dropna’ then we renamed all of the column header and finished off by dropping rows containing unnecessary values. 
 
 - Load: the final database, tables/collections, and why this was chosen.
 
