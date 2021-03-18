@@ -19,13 +19,13 @@ Once you have identified your datasets, perform ETL on the data. Make sure to pl
 
 - Extract: your original data sources and how the data was formatted (CSV, JSON, pgAdmin 4, etc).
 
-We pulled national marriage and divorce rate data from https://www.cdc.gov/nchs/nvss/marriage-divorce.htm, best-selling book data from https://www.kaggle.com/sootersaalu/amazon-top-50-bestselling-books-2009-2019, adult housing accommodations from https://www.census.gov/data/tables/time-series/demo/families/adults.html, US population data from https://www.census.gov/data/tables/time-series/demo/popest/2010s-counties-total.html, and US birth data from https://www.census.gov/data/tables/time-series/demo/fertility/his-cps.html#par_list.   
+We pulled best-selling book data from https://www.kaggle.com/sootersaalu/amazon-top-50-bestselling-books-2009-2019, adult housing accommodations from https://www.census.gov/data/tables/time-series/demo/families/adults.html, US birth data from https://www.census.gov/data/tables/time-series/demo/fertility/his-cps.html#par_list, and US population data from https://www.census.gov/data/tables/time-series/demo/popest/2010s-counties-total.html.
 
 
 - Transform: what data cleaning or transformation was required.
 
 - Load: the final database, tables/collections, and why this was chosen.
 
-Our data was all in CSVs, which made more sense to use SQLAlchemy since we didn't use API's or jsons. We created the database loading_db in PGAdmin4 and then used that to create 5 tables: best_sellers, marriage_divorce, adult_housing, us_population, and us_births
+Our data was all in CSVs, which made more sense to use SQLAlchemy since we didn't use API's or jsons. We created the database loading_db in PGAdmin4 and then used that to create 5 tables: best_sellers, adult_housing, us_births, and us_population. These tables all have year columns from 2010-2017 and can join across that column.
 
 - Please upload the report to Github and submit a link to Bootcampspot.
