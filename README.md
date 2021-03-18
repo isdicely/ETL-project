@@ -1,57 +1,15 @@
 # ETL-project
-**Data Cleanup & Analysis**
 
-Once you have identified your datasets, perform ETL on the data. Make sure to plan and document the following:
+**Carolina, Isabel, and Anne**
 
-- The sources of data that you will extract from.
+For our ETL project, we pulled 4 different data sets. We pulled best-selling book data from https://www.kaggle.com/sootersaalu/amazon-top-50-bestselling-books-2009-2019, adult housing accommodations from https://www.census.gov/data/tables/time-series/demo/families/adults.html, US birth data from https://www.census.gov/data/tables/time-series/demo/fertility/his-cps.html#par_list, and US population data from https://www.census.gov/data/tables/time-series/demo/popest/2010s-counties-total.html.
 
-- The type of transformation needed for this data (cleaning, joining, filtering, aggregating, etc).
+For the best-selling book data, the data was provided in a csv format. There was no need for normalization of the data in the csv format. The file was imported into Pandas (using Jupyter Notebook) and converted into a data frame. From there, we sorted the data by year and re-set the index, used loc function to select for books on the best seller list from 2010 to 2017, and made a copy of the data frame to load.
 
-- The type of final production database to load the data into (relational or non-relational).
+For the US population data, the data was provided in an xlsx format. The data needed to be normalized prior to importing into Pandas (using Jupyter Notebook). In order to normalize the data we removed merged rows that were used to describe the data set, and removed two columns: B (Census aggregate number – this can be calculated during data analysis) and C (Estimates Base). Once imported into Pandas the following operations were done to transform the data before loading to our database: set index to: Country, County and State, renamed the remaining columns tile to “Year”, used the stack function to pull out a column with the year (which became part of the index and the remaining column contained the resident population values), renamed this column to “Resident Population”, reset the index, filtered data to select resident population data from 2010 to 2017, ande made a copy of the data frame to load.
 
-- The final tables or collections that will be used in the production database.
+For the historical living arrangements dataset, the data was provided in csv format. The data was cleaned in pandas using ‘.dropna’, ‘.drop’, ‘.iloc’, and ‘.loc’ in order to drop null values, the rows with unnecessary years (we only needed the data for 2010-2017), and descriptive table comments which were unessenatial to the raw data. We also had to reset the column headers.
 
-- You will be required to submit a final technical report with the above information and steps required to reproduce your ETL process.
+For the data on yearly births per 1,000 women, the transformation process was similar to the historical living arrangements dataset in that we began by dropping null values using ‘.dropna’, renamed all of the column headers, and finished off by dropping rows containing unnecessary values. 
 
-**Project Report**
-
-- At the end of the week, your team will submit a Final Report that describes the following:
-
-- Extract: your original data sources and how the data was formatted (CSV, JSON, pgAdmin 4, etc).
-
-We pulled best-selling book data from https://www.kaggle.com/sootersaalu/amazon-top-50-bestselling-books-2009-2019, adult housing accommodations from https://www.census.gov/data/tables/time-series/demo/families/adults.html, US birth data from https://www.census.gov/data/tables/time-series/demo/fertility/his-cps.html#par_list, and US population data from https://www.census.gov/data/tables/time-series/demo/popest/2010s-counties-total.html.
-
-
-- Transform: what data cleaning or transformation was required.
-
-Best-selling book data
-The data was provided in a csv format. There was no need for normalization of the data in the csv format. The file was imported into Pandas (using Jupyter Notebook) and converted into a data frame. There the following operations were done to transform the data before loading to our database:
-•	Sorted the data by year and re-set the index.
-•	Used loc function to select for books on the best seller list from 2010 to 2017.
-•	Made a copy of the data frame to load.
-
-US population data
-The data was provided in an xlsx format. The data needed to be normalized prior to importing into Pandas (using Jupyter Notebook). The following steps were taken:
-•	Removed merged rows that were used to describe the data set.
-•	Removed two columns:
-    o	B (Census aggregate number – this can be calculated during data analysis)
-    o	C (Estimates Base)
-Once imported into Pandas the following operations were done to transform the data before loading to our database:
-•	Set index to: Country, County and State
-•	Renamed the remaining columns tile to “Year”
-•	Used the stack function to pull out a column with the year.
-    o	This column became part of the index and the remaining column contained the resident population values.
-•	Renamed this column to “Resident Population”.
-•	Reset the index.
-•	Filtered data to select resident population data from 2010 to 2017.
-•	Made a copy of the data frame to load.
-
-The dataset describing historical living arrangements for adults between 1967 through 2020 was pulled from the Census Beureau website as an excel sheet. This data was  littered with null values, as well as descriprtory table comments which were unessenatial to the raw data. These were cleaned out of the data set utilyzing Panda’s ‘.dropna’, ‘.drop’, ‘.iloc’, and ‘.loc’.  Another transformation factor was resetting the column headers. After cleaning out the data, we dropped the rows with unnecessary years (we only needed the data for 2010-2017).
-
-For the data on yearly births per 1,000 women, the transformation process was similar to the historical living arrangements dataset. We began by dropping null values using ‘.dropna’ then we renamed all of the column header and finished off by dropping rows containing unnecessary values. 
-
-- Load: the final database, tables/collections, and why this was chosen.
-
-Our data was all in CSVs, which made more sense to use SQLAlchemy since we didn't use API's or jsons. We created the database loading_db in PGAdmin4 and then used that to create 5 tables using SQLAlchemy in Jupyter Notebook: best_sellers, adult_housing, us_births, and us_population. These tables all have year columns from 2010-2017 and can join across that column.
-
-- Please upload the report to Github and submit a link to Bootcampspot.
+Since our data was all in CSVs, it made more sense to use SQLAlchemy since we didn't use API's or jsons. We created the database loading_db in PGAdmin4 and then used that database to create the 4 tables using SQLAlchemy in Jupyter Notebook: best_sellers, adult_housing, us_births, and us_population. These tables all have year columns from 2010-2017 and can join across that column.
