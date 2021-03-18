@@ -1,5 +1,5 @@
 # ETL-project
-Data Cleanup & Analysis
+**Data Cleanup & Analysis**
 
 Once you have identified your datasets, perform ETL on the data. Make sure to plan and document the following:
 
@@ -13,9 +13,14 @@ Once you have identified your datasets, perform ETL on the data. Make sure to pl
 
 - You will be required to submit a final technical report with the above information and steps required to reproduce your ETL process.
 
-Project Report
-At the end of the week, your team will submit a Final Report that describes the following:
-Extract: your original data sources and how the data was formatted (CSV, JSON, pgAdmin 4, etc).
-Transform: what data cleaning or transformation was required.
-Load: the final database, tables/collections, and why this was chosen.
-Please upload the report to Github and submit a link to Bootcampspot.
+**Project Report**
+
+- At the end of the week, your team will submit a Final Report that describes the following:
+
+- Extract: your original data sources and how the data was formatted (CSV, JSON, pgAdmin 4, etc).
+
+- Transform: what data cleaning or transformation was required.
+
+- Load: the final database, tables/collections, and why this was chosen.
+
+- Please upload the report to Github and submit a link to Bootcampspot.
